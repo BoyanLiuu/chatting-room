@@ -1,0 +1,42 @@
+
+<div id="main">
+    <div class="main">
+        <form action="/signup" method="post">
+
+            <h1>
+                Register
+            </h1>
+            {{#if flag}}
+            <div class="alert alert-danger text-center">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{#each messages}}
+                     {{this}}
+                {{/each}}              
+            </div>
+            {{/if}}
+            <div class="inset">
+                <p>
+                  <label for="username">USERNAME</label>
+                  <input type="text" name="username" class="" placeholder="">
+                </p>
+
+                <p>
+                    <label for="email">EMAIL ADDRESS</label>
+                    <input type="text" name="email" placeholder="" />
+                </p>
+                <p>
+                    <label for="password">PASSWORD</label>
+                    <input type="password" name="password" placeholder="" />
+                </p>
+
+            </div>
+
+            <p class="p-container">
+                <span><a href="/">Login</a></span>
+                <input type="submit" class="login-log" style=" background: #3bb5ec; border: #3bb5ec;" value="Register">
+            </p>
+        </form>
+    </div>
+</div>
+
+
