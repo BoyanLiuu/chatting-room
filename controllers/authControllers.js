@@ -1,16 +1,14 @@
 const { check, validationResult } = require('express-validator');
-exports.helper = [
-    // Check whether username is empty or not, and post error message associate with current validator
+exports.signUpHelper = [
     check('username').not().isEmpty().isLength({
         min: 5
     }).withMessage('Username is required and must be at least 5 characters.'),
     check('email').not().isEmpty().isEmail()
     .withMessage('Email is invalid'),
-    check('password').not().isEmpty()
-    .withMessage('Password is required and must be at least 5 characters.'),
+    check('password').not().isEmpty().isLength({min: 5 }).withMessage('Password is required and must be at least 5 characters.')
 ]
 
-exports.postValidation = function (req, res, next) {
+exports.Validation = function (req, res, next) {
     const err = validationResult(req);
     //find errors and convert to array
     const reqErrors = err.array();
@@ -22,12 +20,29 @@ exports.postValidation = function (req, res, next) {
     });
     //check if we have error or not
     if (messages.length > 0) {
-        // Store error into flash , so we display it later
-        req.flash('error', messages);
-        res.redirect('/signup');
+        if(req.url === "/signup"){
+            // Store error into flash , so we display it later
+            req.flash('error', messages);
+            res.redirect('/signup');
+        } else{
+            // Store error into flash , so we display it later
+            req.flash('error', messages);
+            res.redirect('/'); 
+        }
+
     }
     else{
         return next()
     }
 
 }
+
+exports.logInHelper = [
+    check('email').not().isEmpty().isEmail()
+    .withMessage('Email is invalid'),
+    check('password').not().isEmpty()
+    .withMessage('Password is required and must be at least 5 characters.'),
+]
+
+
+

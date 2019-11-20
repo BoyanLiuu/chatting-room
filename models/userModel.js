@@ -3,7 +3,8 @@ var bcrypt = require('bcryptjs');
 
 
 const userSchema = mongoose.Schema({
-  name: {
+  fullname: {type: String, unique: true, default: ''},
+  username: {
     type: String,
   },
   email: {
@@ -31,8 +32,7 @@ const userSchema = mongoose.Schema({
   google: {
     type: String,
     default: ''
-  },
-  googleTokens: Array,
+  }
 });
 
 // encrypt password function

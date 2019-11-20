@@ -1,7 +1,39 @@
 
+<head>
+    <meta charset="UTF-8">
+    <title>Example App</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../public/css/login.css">
+
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">LOL</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" >
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+    <a class="btn btn-info mr-1" href="/">Login</a>
+    <a class="btn btn-info " href="/signup">Signup</a>
+  </div>
+</nav>
 <div id="main">
     <div class="main">
         <form action="/signup" method="post">
+            <h1>
+                <a href="/auth/facebook" class="btn-social btn-facebook btn-lg">
+                    <i class="fa fa-facebook"></i> Sign Up With Facebook
+                </a>
+            </h1>
+            
 
             <h1>
                 Register
@@ -37,6 +69,8 @@
             </p>
         </form>
     </div>
-</div>
+</div> 
+</body>
+
 
 
