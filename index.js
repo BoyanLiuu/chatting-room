@@ -1,21 +1,35 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var logger = require('morgan');
-var exphbs = require('express-handlebars');
-var userRouter = require('./routes/userRoutes');
-var homeRouter = require('./routes/homeRoutes');
-var mongoose = require('mongoose');
-var dotenv = require('dotenv');
-var passport =  require('passport');
-var flash = require('connect-flash');
-var expressSession =  require('express-session');
+const express = require('express');
+const bodyParser = require('body-parser');
+const logger = require('morgan');
+const exphbs = require('express-handlebars');
+const userRouter = require('./routes/userRoutes');
+const homeRouter = require('./routes/homeRoutes');
+const groupRouter = require('./routes/groupRoutes');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const passport =  require('passport');
+const flash = require('connect-flash');
+const expressSession =  require('express-session');
+// import a user class that can be used in socket .io implementation
+const {Users} = require('./utils/userClass');
 mongoose.Promise = global.Promise;
+/*
+Allow server to use Socket.io
+1. Switch to http server, but pass in express app in the function handler (so we can still use app to route all our URLs)
+2. Use socket io to connect to the web server
+3. Change app.listen to http.listen
+4. Use socket io to handle new connections to our server -> io.on('connection' ....){}
+*/
+//=====================================
+const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+//=====================================
 
-// Load envirorment variables
+// Load envirorment constiables
 dotenv.config({
   path: './config.env'
 });
-
 const DB = process.env.DATABSE;
 // Connect to MongoDB
 mongoose
@@ -29,8 +43,8 @@ mongoose
 
   require('./passport/passport-local')(passport);
   require('./passport/passport-facebook')(passport);
-//set up express app.
-var app = express();
+  //pass additional class into socket.io , so we can use this class in our chat room
+  require('./socket/groupchat')(io,Users);
 
 
 
@@ -49,6 +63,7 @@ app.use(bodyParser.urlencoded({
 // use express.Router
 app.use('/', userRouter);
 app.use('/', homeRouter);
+app.use('/', groupRouter);
 //view engine setup
 
 
@@ -63,10 +78,10 @@ app.use('/public', express.static('public'));
 //Routes
 app.get('/', function (req, res) {
   res.render('index');
- 
+
 });
 
 
-app.listen(3000, function () {
+http.listen(3000, function () {
   console.log('Listening on port 3000!');
 });
