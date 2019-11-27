@@ -53,7 +53,7 @@ body {
     border: 0 none;
     border-radius: 3px;
     color: #666666;
-    left: auto;
+    /* left: auto; */
     margin-bottom: 0;
     margin-top: 7px;
     padding: 2px 5px;
@@ -62,17 +62,30 @@ body {
     z-index: 9999;
 }
 
+.cards-div{
+    margin: 0 auto;
+   width: 90vw;
+   /* background: chartreuse; */
+}
+
 .card {
+    margin: 0 1vw 0 1vw;
     background: none repeat scroll 0 0 #FFFFFF;
     border-radius: 4px;
     color: #444444;
+   
 }
 
-
+.caption{
+    text-align: center;
+    font-size: .7vw;
+    height: 3vw;
+}
 .card .content {
     background-color: rgba(0, 0, 0, 0);
     box-shadow: none;
     padding: 10px 20px 20px;
+    
 }
 
 .new-search-bar {

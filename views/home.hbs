@@ -7,11 +7,13 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./../public/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
 </head>
 <body>
 {{> navbar}}
   
-<div class="col-md-12">
+<div class="col-12">
    <form action="#" method="post">
        <div class="form-group ad-30" style="margin-top:8px;">
             <div class="input-group search-style">
@@ -23,77 +25,45 @@
         </div>
    </form>
 </div>
-  
-<div class="col-md-12">
-    <div class="">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="filter-container">
-                            <div class="card">
-                                <form action="#" method="post">
-                                    <div class="content">
-                                        <p class="filter">
-                                            FILTER
-                                        </p>
-                                        <hr/>
-                                        <select class="" name="country" id="country" >
-                                            <option value="">Filter By Country</option>
-											<option>England</option>
-											<option>Germany</option>
-											<option>France</option>
-                                        </select>
-                                        <div class="clearfix"></div>
-                                        <button class="btn add-apply">Apply</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-9">
-                <div>
-                    
-
-                    <div class="category-list">
-                        <div class="row">
-                            <form action="#" method="post" id="add-fav">
-                                {{#each output}}
-                                <div class="item col-md-4">
-                                    <div class="thumbnail">
-                                        <a href="/group/{{temp_name}}">
-                                       <img src="{{image}}" alt="">
-                                       </a>
-                                        <div class="caption">
-                                            <h4>{{name}}</h4>
+        
+            <div class="cards-div">     
+                <div class="category-list">
+                    <div class="row">
+                        <form action="#" method="post" id="add-fav">
+                            {{#each output}}
+                            <div class="item col-md-3 ">
+                                <div class="thumbnail">
+                                    <a href="/group/{{temp_name}}">
+                                    <img src="{{image}}" alt="">
+                                    </a>
+                                    <div class="caption">
+                                        {{name}}
+                                        
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                                {{!-- <p>
+                                                    Country
+                                                </p> --}}
+                                            </div>
                                             
-                                            <div class="row">
-                                                <div class="col-xs-12 col-md-6">
-                                                    <p>
-                                                        Country
-                                                    </p>
-                                                </div>
-                                                
-                                                <div class="col-xs-12 col-md-6">
-                                                    <button class="btn add-fav">
-                                                        Add To Favorite
-                                                    </button>
-                                                </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                {{!-- <button class="btn add-fav">
+                                                    Add To Favorite
+                                                </button> --}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {{/each}}
-                            </form>
-                        </div>
+                            </div>
+                            {{/each}}
+                        </form>
                     </div>
-                    
                 </div>
+                    
+                
             </div>
         </div>
+
     </div>
 </div>
 
