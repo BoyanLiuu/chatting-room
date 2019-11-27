@@ -44,7 +44,8 @@ userRouter.post('/',User.logInHelper,User.Validation,passport.authenticate('loca
 
 // facebook log in
 userRouter.get('/auth/facebook',passport.authenticate('facebook', {
-    scope: 'email' 
+    scope: 'email'
+   
  }));
 //It receive  the access token and optional refresh token, as well as profile which contains the authenticated user's Facebook profile
  userRouter.get('/auth/facebook/callback',passport.authenticate('facebook', {
