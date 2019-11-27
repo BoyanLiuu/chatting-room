@@ -45,6 +45,7 @@ mongoose
   require('./passport/passport-facebook')(passport);
   //pass additional class into socket.io , so we can use this class in our chat room
   require('./socket/groupchat')(io,Users);
+  require('./socket/friend')(io);
 
 
 

@@ -11,7 +11,7 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./../../public/css/group.css">
-
+    <link rel="stylesheet" href="./../../public/css/modal.css">
 
 </head>
 
@@ -123,7 +123,7 @@
                             <div class="message_write">
                               <form  id="message-form" method="post">
                                   <input type="hidden" id="groupName" value={{name}}>
-                                 <input type="hidden" id="sender" value={{user.fullname}}>
+                                 <input type="hidden" id="sender" value={{user.username}}>
                                   <textarea class="form-control" name="message" id="msg" placeholder="Type a message"></textarea>
                                   <div class="clearfix"></div>
                                   <div class="chat_bottom">
@@ -163,7 +163,7 @@
                                   <div class="modal-body">
                                     <form action="" method="get" id="add_friend">
                                         <input type="hidden" name="receiverName" id="receiverName" value="">
-                                        <input type="hidden" name="sender-name" id="sender-name" value="">
+                                        <input type="hidden" name="sender-name" id="sender-name" value={{user.username}}>
                                         <button type="submit" id="friend-add" class="btn add"><i class="fa fa-user"></i> Add Friend</button>
                                         
                                         <a id="nameLink" class="btn ">View Profile</a>
@@ -201,6 +201,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
 <script src="/socket.io/socket.io.js"></script>
 <script src ="/public/js/groupchat.js"></script>
+<script src ="/public/js/sendrequest.js"></script>
 </body>
 
 </html>

@@ -3,7 +3,11 @@ var bcrypt = require('bcryptjs');
 
 
 const userSchema = mongoose.Schema({
-  fullname: {type: String, unique: true, default: ''},
+  fullname: {
+    type: String,
+    unique: true,
+    default: ''
+  },
   username: {
     type: String,
   },
@@ -29,7 +33,37 @@ const userSchema = mongoose.Schema({
     default: ''
   },
   fbtokens: Array,
-  google: {
+  sentRequest: [{
+    username: {
+      type: String,
+      default: ''
+    }
+  }],
+  request: [{
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    username: {
+      type: String,
+      default: ''
+    }
+  }],
+  friendsList: [{
+    friendId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    friendName: {
+      type: String,
+      default: ''
+    }
+  }],
+  totalRequest: {
+    type: Number,
+    default: 0
+  },
+  gender: {
     type: String,
     default: ''
   }

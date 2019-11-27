@@ -21,6 +21,13 @@ $(document).ready(() => {
         for(let  i = 0; i <user_list.length; i++){
             ol.append('<p><a id="val" data-toggle="modal" data-target="#myModal">'+user_list[i]+'</a></p>');
         }
+
+        
+        $(document).on('click', '#val', function(){
+            $('#name').text('@'+$(this).text());
+            $('#receiverName').val($(this).text());
+            $('#nameLink').attr("href", "/profile/"+$(this).text());
+        });
         // display number of connected user
         $('#numValue').text('('+user_list.length+')');
         // append html
