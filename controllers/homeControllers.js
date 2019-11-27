@@ -12,21 +12,15 @@ exports.getHomePage = function (req, res) {
             callback(err,result);
         })
 
-    },function(callback){
-        Users.findById(id,(err, result)=>{
-            callback(err,result);
-        })
-
     }],(err,results) => {
         //get result from first function
         let output  = results[0];
-        let user = results[1];
         //  create additional field in object
         output.forEach((element)=>{
             element.temp_name = element.name.split(" ").join("_")
         });
-
-        return res.render('home',{title:'Gaming Hub',output,user});
+        console.log(req.user)
+        return res.render('home',{title:'Gaming Hub',output,user:req.user});
     });
  
 }

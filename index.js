@@ -48,12 +48,21 @@ mongoose
   require('./socket/friend')(io);
 
 
+//view engine setup
+
+
+app.engine('hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs',
+}));
+app.set('view engine', 'hbs');
+app.use('/public', express.static('public'));
 
 //these following two line required to use flash message , need to put before  passport.initialize.
 app.use(expressSession({secret:'Boyan|Ivy',saveUninitialized:false,resave:false}));
 app.use(flash());
 app.use(passport.initialize());
-app.use(logger('dev'));
+app.use(passport.session());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
@@ -65,15 +74,6 @@ app.use(bodyParser.urlencoded({
 app.use('/', userRouter);
 app.use('/', homeRouter);
 app.use('/', groupRouter);
-//view engine setup
-
-
-app.engine('hbs', exphbs({
-  defaultLayout: 'main',
-  extname: '.hbs',
-}));
-app.set('view engine', 'hbs');
-app.use('/public', express.static('public'));
 
 
 //Routes
