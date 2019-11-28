@@ -75,7 +75,6 @@ app.use(bodyParser.urlencoded({
 app.use('/', userRouter);
 app.use('/', homeRouter);
 app.use('/', groupRouter);
-
 app.use('/api',apiRouter);
 
 
