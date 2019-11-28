@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars');
 const userRouter = require('./routes/userRoutes');
 const homeRouter = require('./routes/homeRoutes');
 const groupRouter = require('./routes/groupRoutes');
+const apiRouter = require('./routes/apiRoutes');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const passport =  require('passport');
@@ -74,7 +75,7 @@ app.use(bodyParser.urlencoded({
 app.use('/', userRouter);
 app.use('/', homeRouter);
 app.use('/', groupRouter);
-
+app.use('/api/',ticketsRouter);
 
 //Routes
 app.get('/', function (req, res) {

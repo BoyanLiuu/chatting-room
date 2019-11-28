@@ -4,7 +4,14 @@
  * Pixelate images with ease
  * License: MIT
  */
+$(document).ready(() => {
+console.log("what is your name")
+
+
+});
 (function (window, $) {
+  console.log("hey waht is up")
+
   var pixelate = function() {
     var defaults = {
       value: 0.05,
@@ -25,6 +32,7 @@
 
       for (var k in defaults) {
         if (element.hasAttribute('data-' + k)) {
+          console.log("I am in")
           opts[k] = element.getAttribute('data-' + k);
           continue;
         }
