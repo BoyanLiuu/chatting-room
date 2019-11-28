@@ -7,6 +7,7 @@ body {
 
 .navbar{
     background-color: #4aa1f3;
+    height: 7vh;
 }
 
 .navbar-default .navbar-brand{
@@ -73,7 +74,6 @@ body {
     background: none repeat scroll 0 0 #FFFFFF;
     border-radius: 4px;
     color: #444444;
-   
 }
 
 .caption{

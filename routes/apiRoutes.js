@@ -3,7 +3,7 @@ var express = require('express');
 var apiRouter = express.Router();
 
 
-apiRouter.get('/home',home.getHomePage);
+// apiRouter.get('/home',home.getHomePage);
 
 
 
