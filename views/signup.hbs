@@ -13,17 +13,19 @@
  {{> login-nav}}
 <div id="main">
     <div class="main nes-container">
+        {{!-- <h1 class="title">Sign Up</h1> --}}
         <form action="/signup" method="post">
             <h1>
                 <a href="/auth/facebook" class="btn-social btn-facebook btn-lg">
-                    <i class="fa fa-facebook"></i> Sign Up With Facebook
+                    <i class="nes-icon facebook is-medium"></i> Sign Up With Facebook
                 </a>
             </h1>
             
 
             <h1>
-                Register
+                Or...
             </h1>
+
             {{#if flag}}
             <div class="alert alert-danger text-center">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -33,14 +35,14 @@
             </div>
             {{/if}}
             <div class="inset">
-                <p>
-                  <label for="username">USERNAME</label>
-                  <input type="text" name="username" class="" placeholder="">
-                </p>
+                <div class="nes-field">
+                  <label for="username name_field">USERNAME</label>
+                  <input type="text" name="username " id="name_field" class="nes-input" >
+                </div>  
 
-                <p>
-                    <label for="email">EMAIL ADDRESS</label>
-                    <input type="text" name="email" placeholder="" />
+                <div class="nes-field">
+                    <label for="email email-field">EMAIL ADDRESS</label>
+                    <input type="text" name="email email-field" placeholder="" class="nes-input" />
                 </p>
                 <p>
                     <label for="password">PASSWORD</label>
@@ -50,8 +52,9 @@
             </div>
 
             <p class="p-container">
-                <span><a href="/">Login</a></span>
-                <input type="submit" class="login-log" style=" background: #3bb5ec; border: #3bb5ec;" value="Register">
+                <a href="/" class="to-login nes-pointer"><button type="button" class="nes-btn nes-pointer is-normal">Login Instead</button></a>
+                {{!-- <input type="submit" class="login-log" style=" background: #3bb5ec; border: #3bb5ec;" value="Register"> --}}
+                <button type="submit button" class="nes-btn is-primary nes-pointer login-log" value="Register">Sign up!</button>
             </p>
         </form>
     </div>

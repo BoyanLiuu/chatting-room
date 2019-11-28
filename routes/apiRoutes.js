@@ -10,8 +10,6 @@ apiRouter.route('/user/:id')
 .get(apiController.getsingleUser)
 .delete(apiController.deletesingleUser)
 .put(apiController.updatesingleUser);
-
-
 // 5. delete all user
 apiRouter.delete('/delete_user',apiController.deleteAllUser);
 // 6. delete all chat room
@@ -24,5 +22,9 @@ apiRouter.post('/create_room',apiController.createRoom);
 apiRouter.get('/room_List',apiController.getAllRoom);
 // 10. get single room information
 apiRouter.get('/room/:id',apiController.getSingleRoom);
+
+
+
+
 
 module.exports = apiRouter;
