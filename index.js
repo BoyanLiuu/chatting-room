@@ -75,7 +75,7 @@ app.use(bodyParser.urlencoded({
 app.use('/', userRouter);
 app.use('/', homeRouter);
 app.use('/', groupRouter);
-app.use('/api/',ticketsRouter);
+app.use('/api',apiRouter);
 
 //Routes
 app.get('/', function (req, res) {
