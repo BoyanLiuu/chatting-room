@@ -10,6 +10,7 @@ exports.signUpHelper = [
 
 exports.Validation = function (req, res, next) {
     const err = validationResult(req);
+    console.log("hello")
     //find errors and convert to array
     const reqErrors = err.array();
     const errors = reqErrors.filter(e => e.msg !== 'Invalid value');
