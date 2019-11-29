@@ -19,37 +19,34 @@
 
 <body>
 {{> navbar}}
-    <div class="col-md-12">
-        
-
+    <div class="col-md-12 contents">
         <div class="col-md-12">
             <div class="chat_container">
                 <div class="row">
-                    
                     <div class="col-sm-4 col-md-3 mob-clearfix">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card-container">
+
+                                    {{!-- user info card --}}
                                     <div class="card">
                                         <div class="front">
                                             <div class="cover">
-
                                             </div>
                                             <div class="user cover-img">
-                                                <img src="https://placehold.it/300x300" class="img-circle" alt="">
+                                                <img src="../../public/img/icon.jpg" class="img-circle" alt="" style="image-rendering: pixelated;">
                                             </div>
                                             <div class="content">
                                                 <div class="main">
-                                                    <h3 class="name">{{user.username}}</h3>
+                                                    <h3 class="name" style="font-family: 'Press Start 2P', cursive;" >{{user.username}}</h3>
                                                     <p class="profession-online">
                                                         <i class="fa fa-circle online" aria-hidden="true"></i>
                                                         Online
                                                     </p>
                                                 </div>
                                                 <div class="footer">
-                                                    <i class="fa fa-mail-forward"></i> 
                                                     <a href="#">
-                                                      View My Profile
+                                                       >> View my profile
                                                     </a>
                                                 </div>
                                             </div>
@@ -88,17 +85,9 @@
 
 
                     
-                    <div class="col-sm-5 col-md-6 message_section">
+                    <div class="col-sm-5 col-md-6 message_section nes-container with-title is-centered">
+                        <h1 class="title" style="font-size: 1.3vw; background-color:#b1e2f5; padding:4px; bottom:2px;"> {{gpname}}</h1>
                         <div class="row">
-                            <div class="new_message_head">
-                                <div class="pull-left">
-                                <button class="club_name">
-                                  {{gpname}}
-                                </button>
-                                </div>
-                                <div class="pull-right">
-                                </div>
-                            </div>
                             <div class="chat_area">
                                 <ul id="messages" class="list-unstyled">
 
@@ -109,10 +98,10 @@
                               <form  id="message-form" method="post">
                                   <input type="hidden" id="groupName" value={{name}}>
                                  <input type="hidden" id="sender" value={{user.username}}>
-                                  <textarea class="form-control" name="message" id="msg" placeholder="Type a message"></textarea>
+                                  <textarea class="form-control nes-textarea" name="message" id="msg" placeholder="Type a message"></textarea>
                                   <div class="clearfix"></div>
                                   <div class="chat_bottom">
-                                      <button id="send-message" class="pull-right btn btn-primary" style="background: #4aa1f3; border: #4aa1f3; ">
+                                      <button id="send-message" class="pull-right btn btn-primary nes-btn is-primary">
                                           Send
                                       </button>
                                   </div>

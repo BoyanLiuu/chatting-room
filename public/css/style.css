@@ -162,7 +162,7 @@ body {
 }
 
 .dropdown-tag {
-    background: #03A9F4;
+    background: rgb(23, 39, 58);
     color: white;
     padding: 4px;
     margin-bottom: 15px;
@@ -187,8 +187,8 @@ body {
 }
 
 .drop-accept {
-    background: #4aa1f3 !important;
-    border: #3bb5ec;
+    background:  rgb(23, 39, 58); !important;
+    /* border: #3bb5ec; */
     color: white !important;
     text-shadow: none;
 }

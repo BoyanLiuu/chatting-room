@@ -1,12 +1,23 @@
-body {
+/* body {
     font-size: 16px;
     line-height: 1.42857143;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #555;
     background: #eeeeee;
+} */
+
+html { 
+    background: url(../img/bg1.png) no-repeat center center fixed; 
+    opacity: 97%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+.contents{
+    margin-top: 2.5vh;
 }
-
-
 h1 {
     font-size: 38px;
     color: #5C5C5B;
@@ -25,7 +36,8 @@ h3 {
 }
 
 .navbar{
-    background: #4aa1f3;
+    background: #22314d;
+    height: 7vh;
 }
 
 .navbar-default .navbar-brand {
@@ -52,9 +64,12 @@ h3 {
     color: #fff !important;
     background-color: #4aa1f3;
 }
-
+.dropdown-toggle{
+    margin-top: 1.4vh;
+    background: #22314d !important; 
+}
 .dropdown-toggle:active, .open .dropdown-toggle {
-    background:#4aa1f3 !important; 
+    background:  #22314d !important; 
     border: none !important;
     color:#000 !important;
 }
@@ -76,7 +91,7 @@ h3 {
 }
 
 .new_message_head {
-    background: white none repeat scroll 0 0;
+    background: rgba(255, 255, 255, 0.719) none repeat scroll 0 0;
     float: left;
     font-size: 13px;
     font-weight: 600;
@@ -86,19 +101,20 @@ h3 {
 }
 
 .message_section {
-    border: 1px solid #dddddd;
+    background: rgba(255, 255, 255, 0.582) ;
+    border: 1px solid #ddddddb0;
 }
 
 .chat_area {
-    background: white;
-    float: left;
+    /* background: rgba(255, 255, 255, 0.582); */
+    /* float: left; */
     height: 360px;
     overflow-x: hidden;
     overflow-y: auto;
     width: 100%;
-    border-left: 1px solid rgba(128, 128, 128, 0.32);
+    /* border-left: 1px solid rgba(128, 128, 128, 0.32);
     border-bottom: 1px solid rgba(128, 128, 128, 0.32);
-    border-right: 1px solid rgba(128, 128, 128, 0.32);
+    border-right: 1px solid rgba(128, 128, 128, 0.32); */
     overflow-wrap: break-word;
     word-wrap: break-word;
     -ms-word-break: break-all;
@@ -113,6 +129,8 @@ h3 {
 
     .chat_area li {
         padding: 14px 14px 0;
+        width: 100%;
+        text-align: start;
     }
 
         .chat_area li .chat-img1 img {
@@ -129,7 +147,8 @@ h3 {
 }
 
 .message_write {
-    background: white none repeat scroll 0 0;
+    border-top:  3px solid #000 ;
+    background: rgba(255, 255, 255, 0.418) none repeat scroll 0 0;
     float: left;
     padding: 15px;
     width: 100%;
@@ -148,7 +167,7 @@ h3 {
 
 member_list li:hover {
     background: #428bca none repeat scroll 0 0;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.589);
     cursor: pointer;
 }
 
@@ -169,11 +188,13 @@ member_list li:hover {
     -o-perspective: 800px;
     perspective: 800px;
     margin-bottom: 30px;
+    /* margin-top: 30px; */
 }
 
 
+/* change card color here */
 .card {
-    background: none repeat scroll 0 0 #FFFFFF;
+    background: none repeat scroll 0 0 rgba(237, 238, 238, 0.562);
     border-radius: 4px;
     color: #444444;
 }
@@ -181,9 +202,9 @@ member_list li:hover {
 .card-container, .front, .back {
     width: 100%;
     border-radius: 4px;
-    -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
+    /* -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
     -moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
-    box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
+    box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16); */
 }
 
 .card .cover {
@@ -207,12 +228,12 @@ member_list li:hover {
 
     .card .user img {
         background: none repeat scroll 0 0 #FFFFFF;
-        border: 4px solid #FFFFFF;
+        border: 2px solid #FFFFFF;
         width: 100%;
     }
 
 .card .content {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(211, 206, 206, 0);
     box-shadow: none;
     padding: 10px 20px 20px;
 }
@@ -239,22 +260,22 @@ member_list li:hover {
 
 
 .card .profession-online {
-    color: #999999;
+    color: #5e5c5c;
     text-align: center;
     margin-bottom: 20px;
     margin-top: 5px;
 }
 
 .online {
-    font-size: 10px;
-    color: rgba(129, 191, 57, 0.95);
+    font-size: 13px;
+    color: rgba(115, 218, 94, 0.95);
     position: relative;
-    top: -2px;
+    top: -4px;
 }
 
 .card .footer {
     border-top: 1px solid #EEEEEE;
-    color: #999999;
+    color: #726d6d;
     margin: 30px 0 0;
     padding: 10px 0 0;
     text-align: center;
@@ -276,8 +297,10 @@ member_list li:hover {
     float: right;
 }
 
+/* change name color here */
 .name, .friends, #numOfFriends, .club_name, .club_fans{
-    color: #4aa1f3 !important;
+    color: #0e3d5c !important;
+    font-weight: 600;
 }
 
 .bl {
@@ -287,7 +310,7 @@ member_list li:hover {
 
 .gr-rightsidebar {
     padding-top: 15px;
-    background: white;
+    background: rgba(255, 255, 255, 0.616);
     float: left;
     height: 506px;
     overflow-x: hidden;
