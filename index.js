@@ -34,6 +34,8 @@ dotenv.config({
   path: './config.env'
 });
 const DB = process.env.DATABSE;
+console.log("I am inside index.js")
+console.log(DB)
 // Connect to MongoDB
 mongoose
   .connect(DB, {
