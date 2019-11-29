@@ -54,6 +54,7 @@ $(document).ready(() => {
     // we emit event from client, so we need to go to server to listen event
     $('#message-form').on('submit', (e) => {
         e.preventDefault();
+
         var msg = $('#msg').val();
         socket.emit('createMessage', {
             text: msg,
