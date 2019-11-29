@@ -49,21 +49,31 @@ $(document).ready(() => {
     })
 
 
-
+    $('#message-form').keydown((e) => {
+        var keyCode = e.keyCode || e.which;
+        if(keyCode === 13 ){
+            e.preventDefault();
+            sendMessage();
+        }
+    })
 
     // we emit event from client, so we need to go to server to listen event
     $('#message-form').on('submit', (e) => {
         e.preventDefault();
-
-        var msg = $('#msg').val();
-        socket.emit('createMessage', {
-            text: msg,
-            room,
-            sender
-        }, function(){
-            $('#msg').val('');
-        });
-
+        sendMessage();
     })
 
+    function sendMessage(){
+        var msg = $('#msg').val();
+        if (msg !== ""){
+            socket.emit('createMessage', {
+                text: msg,
+                room,
+                sender
+            }, function(){
+                $('#msg').val('');
+            });
+        }
+    }
 });
+
