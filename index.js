@@ -11,6 +11,8 @@ const dotenv = require('dotenv');
 const passport =  require('passport');
 const flash = require('connect-flash');
 const expressSession =  require('express-session');
+const compression = require('compression');
+const helmet  = require("helmet")
 // import a user class that can be used in socket .io implementation
 const {Users} = require('./utils/userClass');
 mongoose.Promise = global.Promise;
@@ -41,7 +43,8 @@ mongoose
     useUnifiedTopology: true
   })
   .then(() => console.log('DB connection successful!'));
-
+  app.use(compression())
+  app.use(helmet())
   require('./passport/passport-local')(passport);
   require('./passport/passport-facebook')(passport);
   //pass additional class into socket.io , so we can use this class in our chat room
@@ -76,15 +79,17 @@ app.use('/', userRouter);
 app.use('/', homeRouter);
 app.use('/', groupRouter);
 app.use('/api',apiRouter);
-
-
-//Routes
 app.get('/', function (req, res) {
   res.render('index');
 
 });
+//get 404 page
+app.use(function (req, res) {
+  res.render('404');
+
+});
 
 
-http.listen(3000, function () {
+http.listen(process.env.PORT || 3000, function () {
   console.log('Listening on port 3000!');
 });

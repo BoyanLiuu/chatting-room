@@ -1,3 +1,5 @@
+// This file basically handle interaction between client side and server side communication in chat room
+// besides it also involves some basic javascript involved in group.hbs
 $(document).ready(() => {
     var socket = io();
     var room = $("#groupName").val();
@@ -75,5 +77,13 @@ $(document).ready(() => {
             });
         }
     }
+    //add emoji features in the textarea 
+    // var s = document.createElement("script");
+    // s.type = "text/javascript";
+    // s.src = "./emojionearea.min.js";
+    // // Use any selector
+    // $("body").append(s);
+
+    // $("#form-control").emojioneArea();
 });
 

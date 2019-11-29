@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "a chat application with rock paper scissors game",
   "main": "index.js",
+  "engine":{
+    "node":"10.16.1",
+    "npm": "6.9.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +25,7 @@
     "async": "^3.1.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
@@ -27,6 +33,7 @@
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
     "express-validator": "^6.2.0",
+    "helmet": "^3.21.2",
     "mongoose": "^5.7.8",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
