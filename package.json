@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "a chat application with rock paper scissors game",
   "main": "index.js",
-  "engine":{
+  "engines":{
     "node":"10.16.1",
     "npm": "6.9.0"
   },
