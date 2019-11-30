@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./../../public/css/modal.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="../../public/css/emojionearea.min.css">
 </head>
 
 <body>
@@ -98,7 +98,10 @@
                               <form  id="message-form" method="post">
                                   <input type="hidden" id="groupName" value={{name}}>
                                  <input type="hidden" id="sender" value={{user.username}}>
-                                  <textarea class="form-control nes-textarea" name="message" id="msg" placeholder="Type a message"></textarea>
+                                 <div id="emoji"></div>
+                                  {{!-- <textarea class="form-control nes-textarea" name="message" id="msg" placeholder="Type a message">
+                                  </textarea> --}}
+                                  
                                   <div class="clearfix"></div>
                                   <div class="chat_bottom">
                                       <button id="send-message" class="pull-right btn btn-primary nes-btn is-primary">

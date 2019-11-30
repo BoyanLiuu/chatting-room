@@ -13,6 +13,7 @@ const flash = require('connect-flash');
 const expressSession =  require('express-session');
 const compression = require('compression');
 const helmet  = require("helmet")
+
 // import a user class that can be used in socket .io implementation
 const {Users} = require('./utils/userClass');
 mongoose.Promise = global.Promise;

@@ -1,132 +1,101 @@
-/*
- * pixelate.js
- * 43081j
- * Pixelate images with ease
- * License: MIT
- */
-$(document).ready(() => {
-console.log("what is your name")
+(function(root) {
 
+  window.URL = window.URL || window.webkitURL || window.mozURL;
 
-});
-(function (window, $) {
-  console.log("hey waht is up")
-
-  var pixelate = function() {
-    var defaults = {
-      value: 0.05,
-      reveal: true,
-      revealonclick: false
-    };
-
-    var options = arguments[0] || {};
-    var element = this;
-    var elementParent = element.parentNode;
-
-    if (typeof options !== 'object') {
-      options = { value: parseInt(arguments[0]) };
-    }
-
-    options = (function() {
-      var opts = {};
-
-      for (var k in defaults) {
-        if (element.hasAttribute('data-' + k)) {
-          console.log("I am in")
-          opts[k] = element.getAttribute('data-' + k);
-          continue;
-        }
-
-        if (k in options) {
-          opts[k] = options[k];
-          continue;
-        }
-
-        opts[k] = defaults[k];
-      }
-      return opts;
-    })();
-
-    var imgWidth = element.width;
-    var imgHeight = element.height;
-    var revealed = false;
-
-    var canv = document.createElement('canvas');
-    canv.width = imgWidth;
-    canv.height = imgHeight;
-
-    var ctx = canv.getContext('2d');
-    ctx.mozImageSmoothingEnabled = false;
+  function disableSmoothRendering(ctx) {
     ctx.webkitImageSmoothingEnabled = false;
+    ctx.mozImageSmoothingEnabled = false;
+    ctx.msImageSmoothingEnabled = false;
     ctx.imageSmoothingEnabled = false;
-
-    var width = imgWidth * options.value;
-    var height = imgHeight * options.value;
-
-    ctx.drawImage(element, 0, 0, width, height);
-    ctx.drawImage(canv, 0, 0, width, height, 0, 0, canv.width, canv.height);
-
-    element.style.display = 'none';
-
-    elementParent.insertBefore(canv, element);
-
-    if (options.revealonclick !== false && options.revealonclick !== 'false') {
-      /*
-       * Reveal on click
-       */
-      canv.addEventListener('click', function () {
-        revealed = !revealed;
-
-        if (revealed) {
-          ctx.drawImage(element, 0, 0, imgWidth, imgHeight);
-        } else {
-          ctx.drawImage(element, 0, 0, width, height);
-          ctx.drawImage(canv, 0, 0, width, height, 0, 0, canv.width, canv.height);
-        }
-      });
-    }
-
-    if (options.reveal !== false && options.reveal !== 'false') {
-      /*
-       * Reveal on hover
-       */
-      canv.addEventListener('mouseenter', function () {
-        if (revealed) {
-          return;
-        }
-
-        ctx.drawImage(element, 0, 0, imgWidth, imgHeight);
-      });
-
-      canv.addEventListener('mouseleave', function () {
-        if (revealed) {
-          return;
-        }
-
-        ctx.drawImage(element, 0, 0, width, height);
-        ctx.drawImage(canv, 0, 0, width, height, 0, 0, canv.width, canv.height);
-      });
-    }
-  };
-
-  if (typeof $ === 'function') {
-    $.fn.extend({
-      pixelate: function() {
-        var args = arguments;
-        return this.each(function () {
-          pixelate.apply(this, args);
-        });
-      }
-    });
+    return ctx;
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    var img = document.querySelectorAll('img[data-pixelate]');
+  function Pixelate(image, opts) {
+    opts = opts || {};
+    this.image = image;
+    this.setAmount(opts.amount);
 
-    for (var i = 0; i < img.length; i++) {
-      img[i].addEventListener('load', function () {
-        pixelate.apply(this);
-      });
+    var imageLoaded = function() {
+      this.imageUrl = image.src;
+      // this.width = image.clientWidth;
+      // this.height = image.clientHeight;
+
+      this.canvas = document.createElement('canvas');
+      this.canvas.style.display = 'none';
+      this.canvas.width = this.width;
+      this.canvas.height = this.height;
+
+      this.canvas.style.cssText = 'image-rendering: optimizeSpeed;' + // FireFox < 6.0
+                         'image-rendering: -moz-crisp-edges;' + // FireFox
+                         'image-rendering: -o-crisp-edges;' +  // Opera
+                         'image-rendering: -webkit-crisp-edges;' + // Chrome
+                         'image-rendering: crisp-edges;' + // Chrome
+                         'image-rendering: -webkit-optimize-contrast;' + // Safari
+                         'image-rendering: pixelated; ' + // Future browsers
+                         '-ms-interpolation-mode: nearest-neighbor;'; // IE
+
+      this.ctx = this.canvas.getContext('2d');
+      this.ctx = disableSmoothRendering(this.ctx);
+
+      this.image.parentNode.appendChild(this.canvas, this.image);
+      this.image.onload = null;
+
+      this.pixelImage = new Image();
+      this.pixelImage.onload = function() {
+        this.ready = true;
+        this.render();
+      }.bind(this);
+      this.pixelImage.src = this.imageUrl;
+    }.bind(this);
+
+    if (this.image.complete) {
+      imageLoaded();
     }
-  });
-})(window, typeof jQuery === 'undefined' ? null : jQuery);
+
+    this.image.onload = imageLoaded;
+
+    return this;
+  }
+
+  Pixelate.prototype.setAmount = function(amount) {
+    this.amount = 1 - (amount || 0);
+    return this;
+  };
+
+  Pixelate.prototype.setWidth = function(width) {
+    var height = (this.height / this.width) * width;
+    this.width = width;
+    this.height = height;
+    this.canvas.width = this.width;
+    this.canvas.height = this.height;
+
+    this.ctx = disableSmoothRendering(this.ctx);
+    return this;
+  };
+
+  Pixelate.prototype.render = function() {
+    if (!this.ready) return this;
+    var w = this.width * (this.amount <= 0 ? 0.01 : this.amount);
+    var h = this.height * (this.amount <= 0 ? 0.01 : this.amount);
+    // render smaller image
+    this.ctx.drawImage(this.pixelImage, 0, 0, w, h);
+    // stretch the smaller image
+    this.ctx.drawImage(this.canvas, 0, 0, w, h, 0, 0, this.width, this.height);
+    this.image.src = this.canvas.toDataURL('image/png');
+    return this;
+  };
+
+  if (typeof exports !== 'undefined') {
+    if (typeof module !== 'undefined' && module.exports) {
+      exports = module.exports = Pixelate;
+    }
+    exports.pixelate = Pixelate;
+  } else if (typeof define === 'function' && define.amd) {
+    define([], function() {
+      return Pixelate;
+    });
+  } else {
+    root.Pixelate = Pixelate;
+  }
+
+})(this);
