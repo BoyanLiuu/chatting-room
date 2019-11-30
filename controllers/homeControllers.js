@@ -19,9 +19,16 @@ exports.getHomePage = function (req, res) {
         output.forEach((element)=>{
             element.temp_name = element.name.split(" ").join("_")
         });
-        console.log(req.user)
-        return res.render('home',{title:'Gaming Hub',output,user:req.user});
+        // console.log(req.user)
+        return res.render('home', {title:'Gaming Hub',output,user:req.user});
     });
  
-}
+};
 
+exports.getAboutPage = function (req, res) {
+    return res.render('about', {user:req.user});
+};
+
+exports.getProfilePage = function (req, res) {
+    return res.render('profile', {user:req.user});
+};

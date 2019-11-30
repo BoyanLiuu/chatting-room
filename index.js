@@ -87,7 +87,6 @@ app.get('/', function (req, res) {
 //get 404 page
 app.use(function (req, res) {
   res.render('404');
-
 });
 
 
