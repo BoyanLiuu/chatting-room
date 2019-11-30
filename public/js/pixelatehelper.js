@@ -1,5 +1,3 @@
-$(document).ready(() => {
-    $("#msg").emojioneArea({
-        inline: true
-    });
-});
+// $(document).ready(() => {
+//     $("#msg").emojioneArea();
+// });
