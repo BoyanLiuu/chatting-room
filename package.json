@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "a chat application with rock paper scissors game",
   "main": "index.js",
-  "engine":{
-    "node":"10.16.1",
+  "engine": {
+    "node": "10.16.1",
     "npm": "6.9.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

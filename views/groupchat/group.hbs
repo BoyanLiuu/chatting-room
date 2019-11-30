@@ -129,30 +129,35 @@
                             <div id="myModal" class="modal fade" role="dialog">
                               <div class="modal-dialog">
 
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h3 class="modal-title" id="name"></h3>
-                                  </div>
-                                  <div class="modal-body">
-                                    <form action="" method="get" id="add_friend">
-                                        <input type="hidden" name="receiverName" id="receiverName" value="">
-                                        <input type="hidden" name="sender-name" id="sender-name" value={{user.username}}>
-                                        <button type="submit" id="friend-add" class="btn add"><i class="fa fa-user"></i> Add Friend</button>
+                                <div class="modal-content nes-dialog">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><i class="nes-icon close is-small"></i></button>
+                                        <h3 class="modal-title" id="name"></h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" method="get" id="add_friend">
+                                            <input type="hidden" name="receiverName" id="receiverName" value="">
+                                            <input type="hidden" name="sender-name" id="sender-name" value={{user.username}}>
+                                                <button type="submit button" id="friend-add" class="btn add nes-btn is-primary"><i class="fa fa-user"></i> Add Friend</button>
+                                                
+                                                <a id="nameLink">
+                                                    <button type="button"  class="nes-btn is-normal">View profile</button>
+                                                </a>
+
+                                                <div id="myTest">
+                                                    
+                                                </div>
+                                            </form>
                                         
-                                        <a id="nameLink" class="btn ">View Profile</a>
+                                        </dialog>
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn_close nes-btn is-normal" data-dismiss="modal">Close</button>
+                                    </div>
+                                    </div>
 
-                                        <div id="myTest">
-                                            
-                                        </div>
-                                    </form>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn_close" data-dismiss="modal">Close</button>
-                                  </div>
                                 </div>
-
-                              </div>
                             </div>
 
                             <div class="col-md-12"  id="main">

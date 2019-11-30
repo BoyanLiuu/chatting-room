@@ -8,7 +8,6 @@ module.exports = function(io){
         }); 
         
         socket.on('friendRequest', (friend, callback) => {
-            console.log("hello")
             io.to(friend.receiver).emit('newFriendRequest', {
                from: friend.sender,
                to: friend.receiver

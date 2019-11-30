@@ -11,59 +11,57 @@
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
 </head>
 <body>
-{{> navbar}}
-  
-<div class="col-12">
-   <form action="#" method="post">
-       <div class="form-group ad-30" style="margin-top:8px;">
-            <div class="input-group search-style">
-                <input class="form-control new-search-bar"  name="country" id="search" placeholder="Enter Your Club Name" type="text">
-                <span class="input-group-btn">
-                    <button class="btn input-btn" type="" id="search-form">Search</button>
-                </span>
+    {{> navbar}}
+    
+    <div class="col-12 searchbar">
+        <form action="" method="post">
+            <div class="form-group ad-30 " style="margin-top:8px;">
+                <div class="input-group search-style nes-field">
+                    <input class="form-control new-search-bar nes-input"  name="country" id="search" placeholder="seach for channel" type="text">
+                    <span class="input-group-btn">
+                        <button class="btn input-btn nes-btn is-primary" type="button" id="search-form">Search</button>
+                    </span>
+                </div>
             </div>
-        </div>
-   </form>
-</div>
-        
-            <div class="cards-div">     
-                <div class="category-list">
-                    <div class="row">
-                        <form action="#" method="post" id="add-fav">
-                            {{#each output}}
-                            <div class="item col-md-3 ">
-                                <div class="thumbnail">
-                                    <a href="/group/{{temp_name}}">
-                                    <img src="{{image}}" alt="room img">
-                                    </a>
-                                    <div class="caption">
-                                        {{name}}
-                                        
-                                        <div class="row">
-                                            <div class="col-xs-12 col-md-6">
-                                                {{!-- <p>
-                                                    Country
-                                                </p> --}}
-                                            </div>
-                                            
-                                            <div class="col-xs-12 col-md-6">
-                                                {{!-- <button class="btn add-fav">
-                                                    Add To Favorite
-                                                </button> --}}
-                                            </div>
-                                        </div>
+        </form>
+    </div>
+            
+    <div class="cards-div">     
+        <div class="category-list">
+            <div class="row">
+                <form action="#" method="post" id="add-fav">
+                    {{#each output}}
+                    <div class="item col-md-3 ">
+                        <div class="thumbnail">
+                            <a href="/group/{{temp_name}}">
+                            <img src="{{image}}" alt="room img">
+                            </a>
+                            <div class="caption">
+                                {{name}}
+                                
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        {{!-- <p>
+                                            Country
+                                        </p> --}}
+                                    </div>
+                                    
+                                    <div class="col-xs-12 col-md-6">
+                                        {{!-- <button class="btn add-fav">
+                                            Add To Favorite
+                                        </button> --}}
                                     </div>
                                 </div>
                             </div>
-                            {{/each}}
-                        </form>
+                        </div>
                     </div>
-                </div>
-                    
-                
+                    {{/each}}
+                </form>
             </div>
         </div>
-
     </div>
-</div>
+            {{!-- </div>
+
+        </div>
+    </div> --}}
 </body>

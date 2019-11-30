@@ -39,13 +39,16 @@ $(document).ready(() => {
     socket.on('newMessage', (data) => {
         var message = `<li class="left">
         <span class="chat-img1 pull-left">
-            <img src="https://placehold.it/300x300" class="img-circle" alt="">
+            <img src="../../public/img/icon.jpg" class="nes-avatar is-rounded is-large" alt="">
+            <div class="chat-body1">
+                <span class="chat-name">${data.sender}</span>
+                <br>
+                <div class="nes-balloon from-left">
+                    ${data.text}
+                </div>
+            </div>
         </span>
-        <div class="chat-body1">
-            <span class="chat-name">${data.sender}</span>
-            <br>
-            ${data.text}
-        </div>
+        
      </li>`
         $("#messages").append(message)
     })

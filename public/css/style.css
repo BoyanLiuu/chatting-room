@@ -1,42 +1,100 @@
-body {
+/* html { 
+    
+  } */
+
+body{
+    background: url(../img/bg1.png) no-repeat center center fixed; 
+    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     font-size: 16px;
     line-height: 1.42857143;
-    color: #555;
-    background: #eeeeee;
+    color: rgba(85, 85, 85, 0);
 }
-
+/* =============== Navbar styling ================*/
 .navbar{
-    background-color: #4aa1f3;
+    background: #22314d;
     height: 7vh;
 }
 
-.navbar-default .navbar-brand{
-    color: #ffffff;
+.navbar-default .navbar-brand {
+    color: #fff;
     font-size: 30px;
     font-weight: bold;
+	padding-left: 0px;
     text-decoration: none;
 }
 
 .navbar-brand:hover{
-    color: #ffffff !important;
-    background-color: #4aa1f3 !important;
+    color: #fff !important;
+    background-color: #4aa1f3;
 }
 
-.navbar-default .navbar-nav > li > a{
+.navbar-default .navbar-nav > li > a {
     color: #fff !important;
-    background-color: #4aa1f3 !important;
+    background-color: #4aa1f3;
     font-size: 16px;
     font-weight: bold;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
     color: #fff !important;
-    background-color: #4aa1f3 !important;
+    background-color: #4aa1f3;
+}
+
+.dropdown-toggle{
+    margin-top: 1.4vh;
+    background: #22314d !important; 
+}
+
+.dropdown-toggle:active, .open .dropdown-toggle {
+    background:  #22314d !important; 
+    border: none !important;
+    color:#000 !important;
+}
+
+
+/* =============== search bar  styling ================*/
+.searchbar{
+    margin: 4vh 0 3vh 0;
+}
+
+.new-search-bar {
+   
+    background: rgba(255, 255, 255, 0.904);
+    padding-left: 20px;
+    height: 52px;
+    font-size: 17px;
+    border: 1px;
+}
+.new-search-bar:focus{
+    z-index: -1;
+}
+
+.input-btn {
+    z-index: 1;
+    background: #4aa1f3;
+    padding-left: 23px;
+    padding-right: 23px;
+    border: none;
+    height: 52px;
+    font-size: 15px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.3px;
+    text-shadow:none;
+    color:white !important;
+}
+
+.search-style {
+    width: 50%;
+    margin: 0 auto;
 }
 
 #custom-search-input {
     background: #e8e6e7 none repeat scroll 0 0;
-    margin: 0;
     padding: 10px;
 }
 
@@ -63,15 +121,16 @@ body {
     z-index: 9999;
 }
 
+/* =============== cards styling ================*/
 .cards-div{
     margin: 0 auto;
-   width: 90vw;
+    width: 75vw;
    /* background: chartreuse; */
 }
 
 .card {
     margin: 0 1vw 0 1vw;
-    background: none repeat scroll 0 0 #FFFFFF;
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.507);
     border-radius: 4px;
     color: #444444;
 }
@@ -88,35 +147,7 @@ body {
     
 }
 
-.new-search-bar {
-    padding-left: 20px;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    height: 52px;
-    font-size: 17px;
-    border: 1px;
-}
 
-.input-btn {
-    background: #4aa1f3;
-    border-top-right-radius: 25px !important;
-    border-bottom-right-radius: 25px !important;
-    padding-left: 23px;
-    padding-right: 23px;
-    border: none;
-    height: 52px;
-    font-size: 15px;
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: 0.3px;
-    text-shadow:none;
-    color:white !important;
-}
-
-.search-style {
-    width: 50%;
-    margin: 0 auto;
-}
 
 .add-apply{
     background: #4aa1f3;

@@ -20,7 +20,7 @@ html {
 }
 h1 {
     font-size: 38px;
-    color: #5C5C5B;
+    color: rgb(18, 28, 49);
 }
 
 
@@ -129,17 +129,21 @@ h3 {
 
     .chat_area li {
         padding: 14px 14px 0;
-        width: 100%;
+        width:max-content;
         text-align: start;
+
     }
 
         .chat_area li .chat-img1 img {
-            height: 40px;
-            width: 40px;
+            height: 80px;
+            width: 80px;
+            display: inline-block;
+            border: 3px solid rgba(0, 0, 0, 0.5);
         }
 
     .chat_area .chat-body1 {
-        margin-left: 50px;
+        margin-left: 0vw;
+        display: inline-block;
     }
 
 .chat_area li:last-child {
@@ -260,7 +264,7 @@ member_list li:hover {
 
 
 .card .profession-online {
-    color: #5e5c5c;
+    color: #494848;
     text-align: center;
     margin-bottom: 20px;
     margin-top: 5px;
@@ -279,6 +283,16 @@ member_list li:hover {
     margin: 30px 0 0;
     padding: 10px 0 0;
     text-align: center;
+    
+}
+.card .footer a{
+    color: rgb(36, 78, 156);
+    font-weight: 600;
+}
+
+.card .footer a:hover{
+    color: rgb(65, 117, 214);
+    font-weight: 600;
 }
 
 
@@ -322,7 +336,10 @@ member_list li:hover {
 }
 
 
-
+.close{
+    color: #333;
+    opacity: 90%;
+}
 
 
 
