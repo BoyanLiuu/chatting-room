@@ -54,26 +54,32 @@ h3 {
 }
 
 .navbar-default .navbar-nav > li > a {
+    margin-top: 1.4vh;
     color: #fff !important;
-    background-color: #4aa1f3;
-    font-size: 16px;
+    background-color: #22314d;
+    font-size: .7vw;
     font-weight: bold;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
     color: #fff !important;
-    background-color: #4aa1f3;
+    background-color: #22314d;
 }
+
 .dropdown-toggle{
     margin-top: 1.4vh;
     background: #22314d !important; 
 }
+
 .dropdown-toggle:active, .open .dropdown-toggle {
     background:  #22314d !important; 
     border: none !important;
     color:#000 !important;
 }
-
+#aboutlink{
+    margin-left: 2vw !important;
+    font-size: 0.5vw !important;
+}
 .margin-80{
     margin-bottom:80px
 }
