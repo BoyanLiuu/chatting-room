@@ -37,7 +37,7 @@ h3 {
 
 .navbar{
     background: #22314d;
-    height: 7vh;
+    height: 7.2vh;
 }
 
 .navbar-default .navbar-brand {
@@ -350,11 +350,26 @@ member_list li:hover {
 
 
 
+/* ======== styling for profile page ========== */
+body{
+    background: rgba(220, 20, 60, 0) !important;
+}
+
+#profile{
+    margin: 10vh auto;
+    width: 50vw;
+    text-align: center;
+}
+
+#profile p{
+    margin-top: 1vh;
+    color: rgb(54, 54, 54);
+}
 
 
-
-
-
-
-
-
+#profile .online {
+    font-size: 13px;
+    color: rgba(64, 161, 45, 0.95);
+    position: relative;
+    top: -4px;
+}

@@ -16,7 +16,8 @@ body{
 /* =============== Navbar styling ================*/
 .navbar{
     background: #22314d;
-    height: 7vh;
+    height: 7.2vh;
+
 }
 
 .navbar-default .navbar-brand {
@@ -33,7 +34,7 @@ body{
 }
 
 .navbar-default .navbar-nav > li > a {
-    margin-top: 1.4vh;
+    margin-top: 1.3vh;
     color: #fff !important;
     background-color: #22314d;
     font-size: .7vw;
@@ -46,7 +47,7 @@ body{
 }
 
 .dropdown-toggle{
-    margin-top: 1.4vh;
+    margin-top: 1.3vh;
     background: #22314d !important; 
 }
 
@@ -224,7 +225,7 @@ body{
 }
 
 .drop-accept {
-    background:  rgb(23, 39, 58); !important;
+    background:  rgb(23, 39, 58) !important;
     /* border: #3bb5ec; */
     color: white !important;
     text-shadow: none;
@@ -245,11 +246,34 @@ body{
 }
 
 
+/* ============== styling for aboutpage =============== */
+.about-container{
+    margin: 20vh auto;
+    background: rgba(243, 242, 236, 0.411);
+    padding: 0.5vh;
+}
 
+#catdialog{
+    margin: 5vh auto;
+    width: 70vw;
+    /* background: #e8e6e775; */
+    padding:0 3vw;
+    /* border-radius: 100px; */
+}
 
+#catdialog #octo span{
+    color: rgb(37, 121, 190);
+}
 
+#catdialog #user{
+    position: relative;
+    float: right;
+}
 
-
+#homebutton {
+    margin: 4vh auto ;
+    width: fit-content;
+}
 
 
 
