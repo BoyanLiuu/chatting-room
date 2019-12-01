@@ -162,6 +162,7 @@ h3 {
     float: left;
     padding: 15px;
     width: 100%;
+    text-align: left !important;
 }
 
     .message_write textarea.form-control {

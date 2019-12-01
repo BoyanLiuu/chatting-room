@@ -57,6 +57,7 @@ $(document).ready(() => {
     $('#message-form').keydown((e) => {
         var keyCode = e.keyCode || e.which;
         if(keyCode === 13 ){
+            console.log("I just pressed enter")
             e.preventDefault();
             sendMessage();
         }
@@ -66,10 +67,13 @@ $(document).ready(() => {
     $('#message-form').on('submit', (e) => {
         e.preventDefault();
         sendMessage();
+        
     })
 
     function sendMessage(){
         var msg = $('#msg').val();
+        // $("#message-form")[0].reset();  this is not working
+        console.log(msg )
         if (msg !== ""){
             socket.emit('createMessage', {
                 text: msg,
@@ -80,13 +84,5 @@ $(document).ready(() => {
             });
         }
     }
-    //add emoji features in the textarea 
-    // var s = document.createElement("script");
-    // s.type = "text/javascript";
-    // s.src = "./emojionearea.min.js";
-    // // Use any selector
-    // $("body").append(s);
-
-    // $("#form-control").emojioneArea();
 });
 
