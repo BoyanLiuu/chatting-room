@@ -112,20 +112,16 @@ h3 {
 }
 
 .chat_area {
-    /* background: rgba(255, 255, 255, 0.582); */
-    /* float: left; */
     height: 360px;
     overflow-x: hidden;
-    overflow-y: auto;
+    position: relative;
+    /* overflow-y: auto;
     width: 100%;
-    /* border-left: 1px solid rgba(128, 128, 128, 0.32);
-    border-bottom: 1px solid rgba(128, 128, 128, 0.32);
-    border-right: 1px solid rgba(128, 128, 128, 0.32); */
     overflow-wrap: break-word;
     word-wrap: break-word;
     -ms-word-break: break-all;
     word-break: break-all;
-    word-break: break-word;
+    word-break: break-word; */
 
     -ms-hyphens: auto;
     -moz-hyphens: auto;
@@ -139,13 +135,16 @@ h3 {
         text-align: start;
 
     }
-
-        .chat_area li .chat-img1 img {
-            height: 80px;
-            width: 80px;
-            display: inline-block;
-            border: 3px solid rgba(0, 0, 0, 0.5);
+    .text_content{
+        width: 20vw;
+        position: absolute; 
+        word-wrap: break-word;
+    }
+    @media only screen and (max-width: 767px) {
+        .text_content {
+            width: 30vw;
         }
+      } 
 
     .chat_area .chat-body1 {
         margin-left: 0vw;

@@ -38,12 +38,12 @@ $(document).ready(() => {
     })
     socket.on('newMessage', (data) => {
         var message = `<li class="left">
-        <span class="chat-img1 pull-left">
+        <span class="chat-img1 ">
             <img src="../../public/img/icon.jpg" class="nes-avatar is-rounded is-large" alt="">
             <div class="chat-body1">
                 <span class="chat-name">${data.sender}</span>
                 <br>
-                <div class="nes-balloon from-left">
+                <div class="nes-balloon from-left text_content">
                     ${data.text}
                 </div>
             </div>
