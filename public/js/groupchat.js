@@ -55,11 +55,10 @@ $(document).ready(() => {
 
 
     $('#message-form').keydown((e) => {
-        var keyCode = e.keyCode || e.which;
+        const keyCode = e.keyCode || e.which;
         if(keyCode === 13 ){
-            console.log("I just pressed enter")
             e.preventDefault();
-            sendMessage();
+             sendMessage();
         }
     })
 
@@ -71,9 +70,7 @@ $(document).ready(() => {
     })
 
     function sendMessage(){
-        var msg = $('#msg').val();
-        // $("#message-form")[0].reset();  this is not working
-        console.log(msg )
+        const msg=$('.emojionearea-editor').html()
         if (msg !== ""){
             socket.emit('createMessage', {
                 text: msg,
@@ -81,6 +78,7 @@ $(document).ready(() => {
                 sender
             }, function(){
                 $('#msg').val('');
+                $('.emojionearea-editor').html('');
             });
         }
     }
