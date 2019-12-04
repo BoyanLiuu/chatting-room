@@ -3,8 +3,7 @@ var express = require('express');
 var groupRouter = express.Router();
 
 
-groupRouter.get('/group/:name',groupController.getGroupPage);
-
+groupRouter.route('/group/:name').get(groupController.getGroupPage).post(groupController.groupPostPage)
 
 
 module.exports = groupRouter;

@@ -6,3 +6,7 @@ exports.getGroupPage = function (req, res) {
     res.render('groupchat/group',{user:req.user,name,gpname})
     
 }
+
+exports.groupPostPage = function (req, res) {
+
+}

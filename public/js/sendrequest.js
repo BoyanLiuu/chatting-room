@@ -11,33 +11,36 @@ $(document).ready(function () {
         socket.emit('joinRequest', params, function () {
             console.log('Joined');
         });
-        // whenever user click submit button on add friend 
-        $('#add_friend').on('submit', function(e){
-            e.preventDefault();
-            
-            var receiverName = $('#receiverName').val();
-            socket.emit('friendRequest', {
-                receiver: receiverName,
-                sender: sender
-            }, function(){
-                console.log('Request Sent');
-            })
+        socket.on('newFriendRequest',(friend)=>{
+            //whoever receive the request will see this output
+            //it contain object of send name and receiver name
+            console.log(friend);
 
-            // $.ajax({
-            //     url: '/group/'+room,
-            //     type: 'POST',
-            //     data: {
-            //         receiverName: receiverName
-            //     },
-            //     success: function(){
-            //         socket.emit('friendRequest', {
-            //             receiver: receiverName,
-            //             sender: sender
-            //         }, function(){
-            //             console.log('Request Sent');
-            //         })
-            //     }
-            // })
+        })
+
+        // whenever user click submit button on add friend  link 
+        $('#add_friend').on('submit', function (e) {
+            e.preventDefault();
+
+            var receiver = $('#receiverName').val();
+
+            $.ajax({
+                url: '/group/' + room,
+                type: 'POST',
+                data: {
+                    receiver
+                },
+                success: function () {
+                    //emit from client side to server side.
+                    socket.emit('friendRequest', {
+                        receiver,
+                        sender
+                    }, function () {
+                        //who send the message will console log this message
+                        console.log('Request Sent');
+                    })
+                }
+            })
         });
     });
 });
