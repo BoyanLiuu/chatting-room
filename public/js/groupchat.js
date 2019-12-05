@@ -80,6 +80,16 @@ $(document).ready(() => {
                 $('#msg').val('');
                 $('.emojionearea-editor').html('');
             });
+            // we save group message into database,these data come from form data,then we //go togroupController.js
+            $.ajax({
+                url:'/group/'+room,
+                type:'POST',
+                data:{
+                    msg,
+                    room
+                }
+
+            })
         }
     }
 });
