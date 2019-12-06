@@ -1,3 +1,3 @@
-// $(document).ready(() => {
-//     $("#msg").emojioneArea();
-// });
+$(document).ready(() => {
+    $("#msg").emojioneArea();
+});

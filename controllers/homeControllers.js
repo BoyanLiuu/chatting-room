@@ -1,5 +1,5 @@
 
-var async = require("async");
+const async = require("async");
 const games = require('../models/gameModel');
 const Users= require('../models/userModel');
 exports.getHomePage = function (req, res) {

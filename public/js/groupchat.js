@@ -38,12 +38,12 @@ $(document).ready(() => {
     })
     socket.on('newMessage', (data) => {
         var message = `<li class="left">
-        <span class="chat-img1 pull-left">
+        <span class="chat-img1 ">
             <img src="../../public/img/icon.jpg" class="nes-avatar is-rounded is-large" alt="">
             <div class="chat-body1">
                 <span class="chat-name">${data.sender}</span>
                 <br>
-                <div class="nes-balloon from-left">
+                <div class="nes-balloon from-left text_content">
                     ${data.text}
                 </div>
             </div>
@@ -55,10 +55,10 @@ $(document).ready(() => {
 
 
     $('#message-form').keydown((e) => {
-        var keyCode = e.keyCode || e.which;
+        const keyCode = e.keyCode || e.which;
         if(keyCode === 13 ){
             e.preventDefault();
-            sendMessage();
+             sendMessage();
         }
     })
 
@@ -66,10 +66,11 @@ $(document).ready(() => {
     $('#message-form').on('submit', (e) => {
         e.preventDefault();
         sendMessage();
+        
     })
 
     function sendMessage(){
-        var msg = $('#msg').val();
+        const msg=$('.emojionearea-editor').html()
         if (msg !== ""){
             socket.emit('createMessage', {
                 text: msg,
@@ -77,16 +78,19 @@ $(document).ready(() => {
                 sender
             }, function(){
                 $('#msg').val('');
+                $('.emojionearea-editor').html('');
             });
+            // we save group message into database,these data come from form data,then we //go togroupController.js
+            $.ajax({
+                url:'/group/'+room,
+                type:'POST',
+                data:{
+                    msg,
+                    room
+                }
+
+            })
         }
     }
-    //add emoji features in the textarea 
-    // var s = document.createElement("script");
-    // s.type = "text/javascript";
-    // s.src = "./emojionearea.min.js";
-    // // Use any selector
-    // $("body").append(s);
-
-    // $("#form-control").emojioneArea();
 });
 

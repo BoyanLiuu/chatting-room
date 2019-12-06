@@ -31,12 +31,14 @@ const userSchema = mongoose.Schema({
     default: ''
   },
   fbtokens: Array,
+  // store which user you just sent request to 
   sentRequest: [{
     username: {
       type: String,
       default: ''
     }
   }],
+  //store what kind of request you have.
   request: [{
     userId: {
       type: mongoose.Schema.Types.ObjectId,
