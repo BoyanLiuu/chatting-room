@@ -4,11 +4,18 @@ const async = require("async");
 exports.getGroupPage = (req, res) => {
     let name = req.params.name
     let gpname = name.split("_").join(" ")
-    res.render('groupchat/group', {
-        user: req.user,
-        name,
-        gpname
-    })
+    GroupMessage.find({room:name})
+    .populate('sender').then(e =>{
+        res.render('groupchat/group', {
+            user: req.user,
+            name,
+            gpname,
+            chat_history:e
+        })
+    }).catch((err)=>{
+        console.log(err)
+    });
+
 
 }
 

@@ -91,7 +91,21 @@
                         <div class="row">
                             <div class="chat_area">
                                 <ul id="messages" class="list-unstyled">
-
+                                    {{#each chat_history}}
+                                    <li class="left">
+                                            <span class="chat-img1 ">
+                                                <img src="../../public/img/icon.jpg" class="nes-avatar is-rounded is-large" alt="">
+                                                <div class="chat-body1">
+                                                    <span class="chat-name">{{sender.fullname}}</span>
+                                                    <br>
+                                                    <div class="nes-balloon from-left text_content">
+                                                       {{body}}
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            
+                                        </li>
+                                        {{/each}}
                                 </ul> 
                             </div>
 
