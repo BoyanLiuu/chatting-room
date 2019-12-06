@@ -18,9 +18,9 @@
         <form action="" method="post">
             <div class="form-group ad-30 " style="margin-top:8px;">
                 <div class="input-group search-style nes-field">
-                    <input class="form-control new-search-bar nes-input"  name="country" id="search" placeholder="this does not work... yet" type="text">
+                    <input class="form-control new-search-bar nes-input" onkeyup="filter()"  name="country" id="search" placeholder="this does not work... yet" type="text">
                     <span class="input-group-btn">
-                        <button class="btn input-btn nes-btn is-primary" type="button" id="search-form">Search</button>
+                        <button class="btn input-btn nes-btn is-primary" onclick="filter()" type="button" id="search-form">Search</button>
                     </span>
                 </div>
             </div>
@@ -40,19 +40,19 @@
                             <div class="caption">
                                 {{name}}
                                 
-                                <div class="row">
+                                {{!-- <div class="row">
                                     <div class="col-xs-12 col-md-6">
-                                        {{!-- <p>
+                                        <p>
                                             Country
-                                        </p> --}}
+                                        </p> --
                                     </div>
                                     
                                     <div class="col-xs-12 col-md-6">
-                                        {{!-- <button class="btn add-fav">
+                                         <button class="btn add-fav">
                                             Add To Favorite
-                                        </button> --}}
+                                        </button>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -61,4 +61,5 @@
             </div>
         </div>
     </div>
+    
 </body>
