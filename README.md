@@ -11,3 +11,6 @@ node.js chatting room with socket.io
 5. NES.CSS framework
 
 Here are some pictures.
+![](ReadmeImg/chattingRoom.png)
+![](ReadmeImg/homepage.png)
+![](ReadmeImg/mainpage.png)
