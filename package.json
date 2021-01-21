@@ -43,6 +43,6 @@
     "passport-local": "^1.0.0",
     "pixelate": "0.0.5",
     "request": "^2.88.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   }
 }
